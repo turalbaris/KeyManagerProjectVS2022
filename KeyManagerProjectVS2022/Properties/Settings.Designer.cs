@@ -32,5 +32,16 @@ namespace KeyManagerProjectVS2022.Properties {
                 return ((string)(this["dbLoginConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Provider=Microsoft.ACE.OLEDB.12.0;Data Source=|DataDirectory|\\keydb.accdb;Persist" +
+            " Security Info=True;Encrypt Password=False;Mask Password=False")]
+        public string keydbConnectionString {
+            get {
+                return ((string)(this["keydbConnectionString"]));
+            }
+        }
     }
 }

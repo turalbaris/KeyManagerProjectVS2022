@@ -28,24 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTitle = new System.Windows.Forms.TextBox();
+            this.accountIdBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.keydbDataSet = new KeyManagerProjectVS2022.keydbDataSet();
             this.txtUserName = new System.Windows.Forms.TextBox();
+            this.accountIdBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.txtPassword = new System.Windows.Forms.TextBox();
+            this.accountIdBindingSource2 = new System.Windows.Forms.BindingSource(this.components);
             this.txtUrl = new System.Windows.Forms.TextBox();
+            this.accountIdBindingSource3 = new System.Windows.Forms.BindingSource(this.components);
             this.txtNotes = new System.Windows.Forms.TextBox();
+            this.accountIdBindingSource4 = new System.Windows.Forms.BindingSource(this.components);
             this.label5 = new System.Windows.Forms.Label();
             this.panel = new System.Windows.Forms.Panel();
-            this.btnCancel = new System.Windows.Forms.Button();
             this.btnEdit = new System.Windows.Forms.Button();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.accountIDDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.titleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.userNameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.passwordDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uRLDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.notesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label6 = new System.Windows.Forms.Label();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.accountIdTableAdapter = new KeyManagerProjectVS2022.keydbDataSetTableAdapters.AccountIdTableAdapter();
+            this.btnExit = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keydbDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource4)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
@@ -88,39 +108,76 @@
             // 
             // txtTitle
             // 
+            this.txtTitle.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accountIdBindingSource, "Title", true));
             this.txtTitle.Location = new System.Drawing.Point(136, 27);
             this.txtTitle.Name = "txtTitle";
-            this.txtTitle.Size = new System.Drawing.Size(320, 22);
-            this.txtTitle.TabIndex = 4;
+            this.txtTitle.Size = new System.Drawing.Size(366, 22);
+            this.txtTitle.TabIndex = 0;
+            this.txtTitle.TextChanged += new System.EventHandler(this.txtTitle_TextChanged);
+            // 
+            // accountIdBindingSource
+            // 
+            this.accountIdBindingSource.DataMember = "AccountId";
+            this.accountIdBindingSource.DataSource = this.keydbDataSet;
+            // 
+            // keydbDataSet
+            // 
+            this.keydbDataSet.DataSetName = "keydbDataSet";
+            this.keydbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // txtUserName
             // 
+            this.txtUserName.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accountIdBindingSource, "UserName", true));
             this.txtUserName.Location = new System.Drawing.Point(136, 68);
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(368, 22);
-            this.txtUserName.TabIndex = 5;
+            this.txtUserName.TabIndex = 1;
+            // 
+            // accountIdBindingSource1
+            // 
+            this.accountIdBindingSource1.DataMember = "AccountId";
+            this.accountIdBindingSource1.DataSource = this.keydbDataSet;
             // 
             // txtPassword
             // 
+            this.txtPassword.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accountIdBindingSource, "Password", true));
             this.txtPassword.Location = new System.Drawing.Point(136, 108);
             this.txtPassword.Name = "txtPassword";
+            this.txtPassword.PasswordChar = '*';
             this.txtPassword.Size = new System.Drawing.Size(368, 22);
-            this.txtPassword.TabIndex = 6;
+            this.txtPassword.TabIndex = 2;
+            // 
+            // accountIdBindingSource2
+            // 
+            this.accountIdBindingSource2.DataMember = "AccountId";
+            this.accountIdBindingSource2.DataSource = this.keydbDataSet;
             // 
             // txtUrl
             // 
+            this.txtUrl.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accountIdBindingSource, "URL", true));
             this.txtUrl.Location = new System.Drawing.Point(136, 142);
             this.txtUrl.Name = "txtUrl";
             this.txtUrl.Size = new System.Drawing.Size(368, 22);
-            this.txtUrl.TabIndex = 7;
+            this.txtUrl.TabIndex = 3;
+            // 
+            // accountIdBindingSource3
+            // 
+            this.accountIdBindingSource3.DataMember = "AccountId";
+            this.accountIdBindingSource3.DataSource = this.keydbDataSet;
             // 
             // txtNotes
             // 
+            this.txtNotes.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.accountIdBindingSource, "Notes", true));
             this.txtNotes.Location = new System.Drawing.Point(136, 184);
             this.txtNotes.Multiline = true;
             this.txtNotes.Name = "txtNotes";
             this.txtNotes.Size = new System.Drawing.Size(368, 154);
-            this.txtNotes.TabIndex = 8;
+            this.txtNotes.TabIndex = 4;
+            // 
+            // accountIdBindingSource4
+            // 
+            this.accountIdBindingSource4.DataMember = "AccountId";
+            this.accountIdBindingSource4.DataSource = this.keydbDataSet;
             // 
             // label5
             // 
@@ -133,10 +190,6 @@
             // 
             // panel
             // 
-            this.panel.Controls.Add(this.btnCancel);
-            this.panel.Controls.Add(this.btnEdit);
-            this.panel.Controls.Add(this.btnNew);
-            this.panel.Controls.Add(this.btnSave);
             this.panel.Controls.Add(this.txtNotes);
             this.panel.Controls.Add(this.label5);
             this.panel.Controls.Add(this.label1);
@@ -147,47 +200,38 @@
             this.panel.Controls.Add(this.label4);
             this.panel.Controls.Add(this.txtUserName);
             this.panel.Controls.Add(this.txtTitle);
+            this.panel.Enabled = false;
             this.panel.Location = new System.Drawing.Point(12, 12);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(543, 436);
+            this.panel.Size = new System.Drawing.Size(543, 360);
             this.panel.TabIndex = 10;
-            // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(332, 371);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 13;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(233, 371);
+            this.btnEdit.Location = new System.Drawing.Point(243, 388);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
-            this.btnEdit.TabIndex = 12;
+            this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Edit";
             this.btnEdit.UseVisualStyleBackColor = true;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(136, 371);
+            this.btnNew.Location = new System.Drawing.Point(146, 388);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
-            this.btnNew.TabIndex = 11;
+            this.btnNew.TabIndex = 0;
             this.btnNew.Text = "New";
             this.btnNew.UseVisualStyleBackColor = true;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(429, 371);
+            this.btnSave.Location = new System.Drawing.Point(343, 388);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
-            this.btnSave.TabIndex = 10;
+            this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -196,20 +240,77 @@
             // 
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToOrderColumns = true;
+            this.dataGridView.AutoGenerateColumns = false;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(581, 12);
+            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.accountIDDataGridViewTextBoxColumn,
+            this.titleDataGridViewTextBoxColumn,
+            this.userNameDataGridViewTextBoxColumn,
+            this.passwordDataGridViewTextBoxColumn,
+            this.uRLDataGridViewTextBoxColumn,
+            this.notesDataGridViewTextBoxColumn});
+            this.dataGridView.DataSource = this.accountIdBindingSource;
+            this.dataGridView.Location = new System.Drawing.Point(571, 12);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(892, 548);
+            this.dataGridView.Size = new System.Drawing.Size(1162, 653);
             this.dataGridView.TabIndex = 11;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.dataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView_KeyDown);
             // 
+            // accountIDDataGridViewTextBoxColumn
+            // 
+            this.accountIDDataGridViewTextBoxColumn.DataPropertyName = "AccountID";
+            this.accountIDDataGridViewTextBoxColumn.HeaderText = "AccountID";
+            this.accountIDDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.accountIDDataGridViewTextBoxColumn.Name = "accountIDDataGridViewTextBoxColumn";
+            this.accountIDDataGridViewTextBoxColumn.Width = 80;
+            // 
+            // titleDataGridViewTextBoxColumn
+            // 
+            this.titleDataGridViewTextBoxColumn.DataPropertyName = "Title";
+            this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
+            this.titleDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
+            this.titleDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // userNameDataGridViewTextBoxColumn
+            // 
+            this.userNameDataGridViewTextBoxColumn.DataPropertyName = "UserName";
+            this.userNameDataGridViewTextBoxColumn.HeaderText = "UserName";
+            this.userNameDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
+            this.userNameDataGridViewTextBoxColumn.Width = 225;
+            // 
+            // passwordDataGridViewTextBoxColumn
+            // 
+            this.passwordDataGridViewTextBoxColumn.DataPropertyName = "Password";
+            this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
+            this.passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
+            this.passwordDataGridViewTextBoxColumn.Width = 225;
+            // 
+            // uRLDataGridViewTextBoxColumn
+            // 
+            this.uRLDataGridViewTextBoxColumn.DataPropertyName = "URL";
+            this.uRLDataGridViewTextBoxColumn.HeaderText = "URL";
+            this.uRLDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.uRLDataGridViewTextBoxColumn.Name = "uRLDataGridViewTextBoxColumn";
+            this.uRLDataGridViewTextBoxColumn.Width = 200;
+            // 
+            // notesDataGridViewTextBoxColumn
+            // 
+            this.notesDataGridViewTextBoxColumn.DataPropertyName = "Notes";
+            this.notesDataGridViewTextBoxColumn.HeaderText = "Notes";
+            this.notesDataGridViewTextBoxColumn.MinimumWidth = 6;
+            this.notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
+            this.notesDataGridViewTextBoxColumn.Width = 250;
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(813, 602);
+            this.label6.Location = new System.Drawing.Point(977, 715);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(50, 16);
             this.label6.TabIndex = 10;
@@ -217,18 +318,38 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(916, 596);
+            this.txtSearch.Location = new System.Drawing.Point(1080, 709);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(320, 22);
-            this.txtSearch.TabIndex = 11;
+            this.txtSearch.TabIndex = 0;
+            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
+            this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
+            // 
+            // accountIdTableAdapter
+            // 
+            this.accountIdTableAdapter.ClearBeforeFill = true;
+            // 
+            // btnExit
+            // 
+            this.btnExit.Location = new System.Drawing.Point(441, 388);
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 3;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1485, 656);
+            this.ClientSize = new System.Drawing.Size(1780, 833);
+            this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnEdit);
             this.Controls.Add(this.dataGridView);
+            this.Controls.Add(this.btnNew);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.panel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
@@ -239,6 +360,12 @@
             this.Text = "Key Manager ";
             this.Load += new System.EventHandler(this.Form2_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form2_KeyPress);
+            ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.keydbDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource4)).EndInit();
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
@@ -263,9 +390,22 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnEdit;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.Button btnSave;
+        private keydbDataSet keydbDataSet;
+        private System.Windows.Forms.BindingSource accountIdBindingSource;
+        private keydbDataSetTableAdapters.AccountIdTableAdapter accountIdTableAdapter;
+        private System.Windows.Forms.BindingSource accountIdBindingSource1;
+        private System.Windows.Forms.BindingSource accountIdBindingSource2;
+        private System.Windows.Forms.BindingSource accountIdBindingSource3;
+        private System.Windows.Forms.BindingSource accountIdBindingSource4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn accountIDDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uRLDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Button btnExit;
     }
 }
