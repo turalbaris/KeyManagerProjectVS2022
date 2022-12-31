@@ -12,9 +12,15 @@ namespace KeyManagerProjectVS2022
 {
     public partial class Form2 : Form
     {
+        int currentPasswordLength = 0;
+        Random randomChar = new Random();
+
         public Form2()
         {
             InitializeComponent();
+            trackBarPasswordLengthSlider.Minimum = 5;
+            trackBarPasswordLengthSlider.Maximum = 20;
+            passwordGenerator(5);
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -84,10 +90,6 @@ namespace KeyManagerProjectVS2022
             }
         }
 
-        private void txtSearch_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -102,7 +104,7 @@ namespace KeyManagerProjectVS2022
                 else
                 {
                     var query = from o in this.keydbDataSet.AccountId
-                                where o.Title.Contains(txtSearch.Text) || o.UserName.Contains(txtSearch.Text) || o.Notes.Contains(txtSearch.Text)
+                                where o.Title.Contains(txtSearch.Text) || o.UserName.Contains(txtSearch.Text) || o.URL.Contains(txtSearch.Text) || o.Notes.Contains(txtSearch.Text)
                                 select o;
                     accountIdBindingSource.DataSource = query.ToList();
                     //dataGridView.DataSource = query.ToList();
@@ -110,16 +112,57 @@ namespace KeyManagerProjectVS2022
             }
         }
 
-        private void txtTitle_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-        
        
         
         private void btnExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            if (MessageBox.Show("Do you want to close the KeyManager ?", "Close", 
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+
+            
+        }
+
+      
+        private void passwordGenerator(int passwordLength)
+        {
+            String allChracters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&()*+,-./:;<=>?@[]^_{|}~";
+            String randomPassword = "";
+            
+            for(int j=0; j < passwordLength; j++)
+            {
+                int randomNum = randomChar.Next(0, allChracters.Length);
+                randomPassword += allChracters[randomNum];
+            }
+            labelPassword.Text = randomPassword;
+
+        }
+
+        private void btnCopyPassword_Click(object sender, EventArgs e)
+        {
+            //It copies the generated password to the clipboard.
+            Clipboard.SetText(labelPassword.Text);
+            currentPasswordLength = trackBarPasswordLengthSlider.Value;
+            passwordGenerator(currentPasswordLength);
+            MessageBox.Show("You have succesfully coppied the password.", "Message Coppied", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void trackBarPasswordLengthSlider_Scroll(object sender, EventArgs e)
+        {
+            labelPasswordLength.Text = "Password Length: " + trackBarPasswordLengthSlider.Value.ToString();
+            currentPasswordLength = trackBarPasswordLengthSlider.Value;
+            passwordGenerator(currentPasswordLength);
+        }
+
+       
+
+        private void btnLock_Click(object sender, EventArgs e)
+        {
+            Form1 frm1 = new Form1();
+            frm1.Show();
+            this.Hide();
         }
     }
 }

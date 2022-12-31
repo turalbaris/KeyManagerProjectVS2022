@@ -60,6 +60,12 @@
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.accountIdTableAdapter = new KeyManagerProjectVS2022.keydbDataSetTableAdapters.AccountIdTableAdapter();
             this.btnExit = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.labelPassword = new System.Windows.Forms.Label();
+            this.btnCopyPassword = new System.Windows.Forms.Button();
+            this.trackBarPasswordLengthSlider = new System.Windows.Forms.TrackBar();
+            this.labelPasswordLength = new System.Windows.Forms.Label();
+            this.btnLock = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keydbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource1)).BeginInit();
@@ -68,6 +74,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource4)).BeginInit();
             this.panel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarPasswordLengthSlider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -113,7 +121,6 @@
             this.txtTitle.Name = "txtTitle";
             this.txtTitle.Size = new System.Drawing.Size(366, 22);
             this.txtTitle.TabIndex = 0;
-            this.txtTitle.TextChanged += new System.EventHandler(this.txtTitle_TextChanged);
             // 
             // accountIdBindingSource
             // 
@@ -190,6 +197,7 @@
             // 
             // panel
             // 
+            this.panel.BackColor = System.Drawing.Color.DarkOrange;
             this.panel.Controls.Add(this.txtNotes);
             this.panel.Controls.Add(this.label5);
             this.panel.Controls.Add(this.label1);
@@ -208,32 +216,35 @@
             // 
             // btnEdit
             // 
-            this.btnEdit.Location = new System.Drawing.Point(243, 388);
+            this.btnEdit.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnEdit.Location = new System.Drawing.Point(158, 388);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 1;
             this.btnEdit.Text = "Edit";
-            this.btnEdit.UseVisualStyleBackColor = true;
+            this.btnEdit.UseVisualStyleBackColor = false;
             this.btnEdit.Click += new System.EventHandler(this.btnEdit_Click);
             // 
             // btnNew
             // 
-            this.btnNew.Location = new System.Drawing.Point(146, 388);
+            this.btnNew.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnNew.Location = new System.Drawing.Point(61, 388);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 0;
             this.btnNew.Text = "New";
-            this.btnNew.UseVisualStyleBackColor = true;
+            this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(343, 388);
+            this.btnSave.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnSave.Location = new System.Drawing.Point(258, 388);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 2;
             this.btnSave.Text = "Save";
-            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // dataGridView
@@ -250,11 +261,11 @@
             this.uRLDataGridViewTextBoxColumn,
             this.notesDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.accountIdBindingSource;
-            this.dataGridView.Location = new System.Drawing.Point(571, 12);
+            this.dataGridView.Location = new System.Drawing.Point(576, 68);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RowHeadersWidth = 51;
             this.dataGridView.RowTemplate.Height = 24;
-            this.dataGridView.Size = new System.Drawing.Size(1162, 653);
+            this.dataGridView.Size = new System.Drawing.Size(981, 662);
             this.dataGridView.TabIndex = 11;
             this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.dataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView_KeyDown);
@@ -265,7 +276,7 @@
             this.accountIDDataGridViewTextBoxColumn.HeaderText = "AccountID";
             this.accountIDDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.accountIDDataGridViewTextBoxColumn.Name = "accountIDDataGridViewTextBoxColumn";
-            this.accountIDDataGridViewTextBoxColumn.Width = 80;
+            this.accountIDDataGridViewTextBoxColumn.Width = 60;
             // 
             // titleDataGridViewTextBoxColumn
             // 
@@ -273,7 +284,7 @@
             this.titleDataGridViewTextBoxColumn.HeaderText = "Title";
             this.titleDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.titleDataGridViewTextBoxColumn.Name = "titleDataGridViewTextBoxColumn";
-            this.titleDataGridViewTextBoxColumn.Width = 125;
+            this.titleDataGridViewTextBoxColumn.Width = 75;
             // 
             // userNameDataGridViewTextBoxColumn
             // 
@@ -281,7 +292,7 @@
             this.userNameDataGridViewTextBoxColumn.HeaderText = "UserName";
             this.userNameDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.userNameDataGridViewTextBoxColumn.Name = "userNameDataGridViewTextBoxColumn";
-            this.userNameDataGridViewTextBoxColumn.Width = 225;
+            this.userNameDataGridViewTextBoxColumn.Width = 120;
             // 
             // passwordDataGridViewTextBoxColumn
             // 
@@ -289,7 +300,7 @@
             this.passwordDataGridViewTextBoxColumn.HeaderText = "Password";
             this.passwordDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.passwordDataGridViewTextBoxColumn.Name = "passwordDataGridViewTextBoxColumn";
-            this.passwordDataGridViewTextBoxColumn.Width = 225;
+            this.passwordDataGridViewTextBoxColumn.Width = 120;
             // 
             // uRLDataGridViewTextBoxColumn
             // 
@@ -297,7 +308,7 @@
             this.uRLDataGridViewTextBoxColumn.HeaderText = "URL";
             this.uRLDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.uRLDataGridViewTextBoxColumn.Name = "uRLDataGridViewTextBoxColumn";
-            this.uRLDataGridViewTextBoxColumn.Width = 200;
+            this.uRLDataGridViewTextBoxColumn.Width = 150;
             // 
             // notesDataGridViewTextBoxColumn
             // 
@@ -305,24 +316,24 @@
             this.notesDataGridViewTextBoxColumn.HeaderText = "Notes";
             this.notesDataGridViewTextBoxColumn.MinimumWidth = 6;
             this.notesDataGridViewTextBoxColumn.Name = "notesDataGridViewTextBoxColumn";
-            this.notesDataGridViewTextBoxColumn.Width = 250;
+            this.notesDataGridViewTextBoxColumn.Width = 150;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(977, 715);
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(855, 24);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(50, 16);
+            this.label6.Size = new System.Drawing.Size(67, 22);
             this.label6.TabIndex = 10;
             this.label6.Text = "Search";
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(1080, 709);
+            this.txtSearch.Location = new System.Drawing.Point(928, 24);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(320, 22);
             this.txtSearch.TabIndex = 0;
-            this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged);
             this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // accountIdTableAdapter
@@ -331,19 +342,85 @@
             // 
             // btnExit
             // 
-            this.btnExit.Location = new System.Drawing.Point(441, 388);
+            this.btnExit.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnExit.Location = new System.Drawing.Point(461, 388);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
             this.btnExit.TabIndex = 3;
             this.btnExit.Text = "Exit";
-            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DarkOrange;
+            this.panel1.Controls.Add(this.labelPassword);
+            this.panel1.Controls.Add(this.btnCopyPassword);
+            this.panel1.Controls.Add(this.trackBarPasswordLengthSlider);
+            this.panel1.Controls.Add(this.labelPasswordLength);
+            this.panel1.Location = new System.Drawing.Point(12, 434);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(543, 296);
+            this.panel1.TabIndex = 12;
+            // 
+            // labelPassword
+            // 
+            this.labelPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelPassword.Location = new System.Drawing.Point(127, 22);
+            this.labelPassword.Name = "labelPassword";
+            this.labelPassword.Size = new System.Drawing.Size(305, 48);
+            this.labelPassword.TabIndex = 3;
+            this.labelPassword.Text = "label7";
+            this.labelPassword.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // btnCopyPassword
+            // 
+            this.btnCopyPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnCopyPassword.Location = new System.Drawing.Point(137, 187);
+            this.btnCopyPassword.Name = "btnCopyPassword";
+            this.btnCopyPassword.Size = new System.Drawing.Size(295, 56);
+            this.btnCopyPassword.TabIndex = 2;
+            this.btnCopyPassword.Text = "Copy Password";
+            this.btnCopyPassword.UseVisualStyleBackColor = true;
+            this.btnCopyPassword.Click += new System.EventHandler(this.btnCopyPassword_Click);
+            // 
+            // trackBarPasswordLengthSlider
+            // 
+            this.trackBarPasswordLengthSlider.Location = new System.Drawing.Point(137, 125);
+            this.trackBarPasswordLengthSlider.Name = "trackBarPasswordLengthSlider";
+            this.trackBarPasswordLengthSlider.Size = new System.Drawing.Size(299, 56);
+            this.trackBarPasswordLengthSlider.TabIndex = 1;
+            this.trackBarPasswordLengthSlider.Scroll += new System.EventHandler(this.trackBarPasswordLengthSlider_Scroll);
+            // 
+            // labelPasswordLength
+            // 
+            this.labelPasswordLength.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.labelPasswordLength.Location = new System.Drawing.Point(133, 70);
+            this.labelPasswordLength.Name = "labelPasswordLength";
+            this.labelPasswordLength.Size = new System.Drawing.Size(299, 52);
+            this.labelPasswordLength.TabIndex = 0;
+            this.labelPasswordLength.Text = "Password Length: 5";
+            this.labelPasswordLength.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnLock
+            // 
+            this.btnLock.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnLock.Location = new System.Drawing.Point(360, 388);
+            this.btnLock.Name = "btnLock";
+            this.btnLock.Size = new System.Drawing.Size(75, 23);
+            this.btnLock.TabIndex = 14;
+            this.btnLock.Text = "Lock";
+            this.btnLock.UseVisualStyleBackColor = false;
+            this.btnLock.Click += new System.EventHandler(this.btnLock_Click);
             // 
             // Form2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1780, 833);
+            this.BackColor = System.Drawing.Color.LemonChiffon;
+            this.ClientSize = new System.Drawing.Size(1569, 794);
+            this.Controls.Add(this.btnLock);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.btnEdit);
@@ -356,6 +433,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form2";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Key Manager ";
             this.Load += new System.EventHandler(this.Form2_Load);
@@ -369,6 +447,9 @@
             this.panel.ResumeLayout(false);
             this.panel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarPasswordLengthSlider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,12 +481,18 @@
         private System.Windows.Forms.BindingSource accountIdBindingSource2;
         private System.Windows.Forms.BindingSource accountIdBindingSource3;
         private System.Windows.Forms.BindingSource accountIdBindingSource4;
+        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn accountIDDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn titleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn userNameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn passwordDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn uRLDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn notesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.Label labelPasswordLength;
+        private System.Windows.Forms.Button btnCopyPassword;
+        private System.Windows.Forms.TrackBar trackBarPasswordLengthSlider;
+        private System.Windows.Forms.Label labelPassword;
+        private System.Windows.Forms.Button btnLock;
     }
 }
