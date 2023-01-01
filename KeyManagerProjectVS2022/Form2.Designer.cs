@@ -66,6 +66,8 @@
             this.trackBarPasswordLengthSlider = new System.Windows.Forms.TrackBar();
             this.labelPasswordLength = new System.Windows.Forms.Label();
             this.btnLock = new System.Windows.Forms.Button();
+            this.labelRowNumber = new System.Windows.Forms.Label();
+            this.btnDelete = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.keydbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource1)).BeginInit();
@@ -212,12 +214,12 @@
             this.panel.Location = new System.Drawing.Point(12, 12);
             this.panel.Name = "panel";
             this.panel.Size = new System.Drawing.Size(543, 360);
-            this.panel.TabIndex = 10;
+            this.panel.TabIndex = 0;
             // 
             // btnEdit
             // 
             this.btnEdit.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnEdit.Location = new System.Drawing.Point(158, 388);
+            this.btnEdit.Location = new System.Drawing.Point(107, 388);
             this.btnEdit.Name = "btnEdit";
             this.btnEdit.Size = new System.Drawing.Size(75, 23);
             this.btnEdit.TabIndex = 1;
@@ -228,7 +230,7 @@
             // btnNew
             // 
             this.btnNew.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnNew.Location = new System.Drawing.Point(61, 388);
+            this.btnNew.Location = new System.Drawing.Point(13, 388);
             this.btnNew.Name = "btnNew";
             this.btnNew.Size = new System.Drawing.Size(75, 23);
             this.btnNew.TabIndex = 0;
@@ -239,7 +241,7 @@
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnSave.Location = new System.Drawing.Point(258, 388);
+            this.btnSave.Location = new System.Drawing.Point(291, 388);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 2;
@@ -267,7 +269,6 @@
             this.dataGridView.RowTemplate.Height = 24;
             this.dataGridView.Size = new System.Drawing.Size(981, 662);
             this.dataGridView.TabIndex = 11;
-            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellContentClick);
             this.dataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView_KeyDown);
             // 
             // accountIDDataGridViewTextBoxColumn
@@ -333,7 +334,7 @@
             this.txtSearch.Location = new System.Drawing.Point(928, 24);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(320, 22);
-            this.txtSearch.TabIndex = 0;
+            this.txtSearch.TabIndex = 5;
             this.txtSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSearch_KeyPress);
             // 
             // accountIdTableAdapter
@@ -343,10 +344,10 @@
             // btnExit
             // 
             this.btnExit.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnExit.Location = new System.Drawing.Point(461, 388);
+            this.btnExit.Location = new System.Drawing.Point(480, 388);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(75, 23);
-            this.btnExit.TabIndex = 3;
+            this.btnExit.TabIndex = 4;
             this.btnExit.Text = "Exit";
             this.btnExit.UseVisualStyleBackColor = false;
             this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
@@ -379,7 +380,7 @@
             this.btnCopyPassword.Location = new System.Drawing.Point(137, 187);
             this.btnCopyPassword.Name = "btnCopyPassword";
             this.btnCopyPassword.Size = new System.Drawing.Size(295, 56);
-            this.btnCopyPassword.TabIndex = 2;
+            this.btnCopyPassword.TabIndex = 1;
             this.btnCopyPassword.Text = "Copy Password";
             this.btnCopyPassword.UseVisualStyleBackColor = true;
             this.btnCopyPassword.Click += new System.EventHandler(this.btnCopyPassword_Click);
@@ -389,7 +390,7 @@
             this.trackBarPasswordLengthSlider.Location = new System.Drawing.Point(137, 125);
             this.trackBarPasswordLengthSlider.Name = "trackBarPasswordLengthSlider";
             this.trackBarPasswordLengthSlider.Size = new System.Drawing.Size(299, 56);
-            this.trackBarPasswordLengthSlider.TabIndex = 1;
+            this.trackBarPasswordLengthSlider.TabIndex = 0;
             this.trackBarPasswordLengthSlider.Scroll += new System.EventHandler(this.trackBarPasswordLengthSlider_Scroll);
             // 
             // labelPasswordLength
@@ -405,13 +406,34 @@
             // btnLock
             // 
             this.btnLock.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnLock.Location = new System.Drawing.Point(360, 388);
+            this.btnLock.Location = new System.Drawing.Point(384, 388);
             this.btnLock.Name = "btnLock";
             this.btnLock.Size = new System.Drawing.Size(75, 23);
-            this.btnLock.TabIndex = 14;
+            this.btnLock.TabIndex = 3;
             this.btnLock.Text = "Lock";
             this.btnLock.UseVisualStyleBackColor = false;
             this.btnLock.Click += new System.EventHandler(this.btnLock_Click);
+            // 
+            // labelRowNumber
+            // 
+            this.labelRowNumber.AutoSize = true;
+            this.labelRowNumber.Location = new System.Drawing.Point(576, 750);
+            this.labelRowNumber.Name = "labelRowNumber";
+            this.labelRowNumber.Size = new System.Drawing.Size(159, 16);
+            this.labelRowNumber.TabIndex = 13;
+            this.labelRowNumber.Text = "Number of Passwords = 0";
+            this.labelRowNumber.Click += new System.EventHandler(this.labelRowNumber_Click);
+            // 
+            // btnDelete
+            // 
+            this.btnDelete.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnDelete.Location = new System.Drawing.Point(197, 388);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.TabIndex = 14;
+            this.btnDelete.Text = "Delete";
+            this.btnDelete.UseVisualStyleBackColor = false;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // Form2
             // 
@@ -419,6 +441,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(1569, 794);
+            this.Controls.Add(this.btnDelete);
+            this.Controls.Add(this.labelRowNumber);
             this.Controls.Add(this.btnLock);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnExit);
@@ -437,7 +461,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Key Manager ";
             this.Load += new System.EventHandler(this.Form2_Load);
-            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Form2_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.keydbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.accountIdBindingSource1)).EndInit();
@@ -494,5 +517,7 @@
         private System.Windows.Forms.TrackBar trackBarPasswordLengthSlider;
         private System.Windows.Forms.Label labelPassword;
         private System.Windows.Forms.Button btnLock;
+        private System.Windows.Forms.Label labelRowNumber;
+        private System.Windows.Forms.Button btnDelete;
     }
 }

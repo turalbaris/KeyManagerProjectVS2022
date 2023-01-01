@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.OleDb;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -25,27 +27,30 @@ namespace KeyManagerProjectVS2022
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'keydbDataSet.AccountId' table. You can move, or remove it, as needed.
+            // TODO: This line of code loads data into the 'keydbDataSet.AccountId' table.
+            // You can move, or remove it, as needed.
             this.accountIdTableAdapter.Fill(this.keydbDataSet.AccountId);
             accountIdBindingSource.DataSource = this.keydbDataSet.AccountId;
-
+            //It updates the number of password count when the form page uploaded for the first time.
+            showNumberOfPasswords();
         }
 
-        private void Form2_KeyPress(object sender, KeyPressEventArgs e)
+        private void showNumberOfPasswords()
         {
-
-        }
-
-        private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+            string connectionString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=keydb.accdb";
+            OleDbConnection connection = new OleDbConnection(connectionString);
+            connection.Open();
+            string query = "SELECT COUNT(*) FROM AccountId";
+            OleDbCommand command = new OleDbCommand(query, connection);
+            labelRowNumber.Text = "Number of Passwords: " + command.ExecuteScalar().ToString();
+        } 
 
         private void dataGridView_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Delete)
             {
-                if (MessageBox.Show("Are you sure want to delete this record ?", "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                if (MessageBox.Show("Do you want to delete this record ?", 
+                    "Message", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     accountIdBindingSource.RemoveCurrent();
             }
         }
@@ -58,13 +63,26 @@ namespace KeyManagerProjectVS2022
                 txtTitle.Focus();
                 this.keydbDataSet.AccountId.AddAccountIdRow(this.keydbDataSet.AccountId.NewAccountIdRow());
                 accountIdBindingSource.MoveLast();
+                accountIdTableAdapter.Update(this.keydbDataSet.AccountId);
+                showNumberOfPasswords();
             }
             catch
             (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 accountIdBindingSource.ResetBindings(false);
+            }   
+        }
+
+        private void btnDelete_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Do you want to delete this record ?", "Delete !!!", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                accountIdBindingSource.RemoveCurrent();
+                accountIdTableAdapter.Update(this.keydbDataSet.AccountId);
             }
+            showNumberOfPasswords();
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
@@ -72,7 +90,6 @@ namespace KeyManagerProjectVS2022
             panel.Enabled = true;
             txtUserName.Focus();
         }
-
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -88,8 +105,8 @@ namespace KeyManagerProjectVS2022
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 accountIdBindingSource.ResetBindings(false);
             }
+            showNumberOfPasswords();
         }
-
 
         private void txtSearch_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -107,12 +124,9 @@ namespace KeyManagerProjectVS2022
                                 where o.Title.Contains(txtSearch.Text) || o.UserName.Contains(txtSearch.Text) || o.URL.Contains(txtSearch.Text) || o.Notes.Contains(txtSearch.Text)
                                 select o;
                     accountIdBindingSource.DataSource = query.ToList();
-                    //dataGridView.DataSource = query.ToList();
                 }
             }
         }
-
-       
         
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -120,12 +134,9 @@ namespace KeyManagerProjectVS2022
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
-            }
-
-            
+            }          
         }
-
-      
+    
         private void passwordGenerator(int passwordLength)
         {
             String allChracters = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%&()*+,-./:;<=>?@[]^_{|}~";
@@ -137,7 +148,6 @@ namespace KeyManagerProjectVS2022
                 randomPassword += allChracters[randomNum];
             }
             labelPassword.Text = randomPassword;
-
         }
 
         private void btnCopyPassword_Click(object sender, EventArgs e)
@@ -155,14 +165,17 @@ namespace KeyManagerProjectVS2022
             currentPasswordLength = trackBarPasswordLengthSlider.Value;
             passwordGenerator(currentPasswordLength);
         }
-
-       
-
+      
         private void btnLock_Click(object sender, EventArgs e)
         {
             Form1 frm1 = new Form1();
             frm1.Show();
             this.Hide();
         }
+
+        private void labelRowNumber_Click(object sender, EventArgs e)
+        {
+            showNumberOfPasswords();
+        } 
     }
 }

@@ -70,5 +70,15 @@ namespace KeyManagerProjectVS2022.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_transparent_user_business_computer_icons_lock_company_service_people {
+            get {
+                object obj = ResourceManager.GetObject("png-transparent-user-business-computer-icons-lock-company-service-people", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

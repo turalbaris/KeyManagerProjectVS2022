@@ -71,5 +71,17 @@ namespace KeyManagerProjectVS2022
                 MessageBox.Show(ex.Message, "Message", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnChangePassword_Click(object sender, EventArgs e)
+        {
+            Form3 frm3 = new Form3();
+            frm3.Show();
+            this.Hide();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }
