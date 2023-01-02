@@ -83,5 +83,12 @@ namespace KeyManagerProjectVS2022
         {
             Application.Exit();
         }
+
+        private void btnAbout_Click(object sender, EventArgs e)
+        {
+            Form4 frm4 = new Form4();
+            frm4.Show();
+            this.Hide();
+        }
     }
 }
